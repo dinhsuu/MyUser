@@ -1,15 +1,16 @@
 // import routes from "./routes";
-// import express from "express";
-// const app = express();
+import express from "express";
+const app = express();
 
 // const port = process.env.PORT || 3000;
 // app.listen(port);
 
 // app.use(express.json());
 
-// app.get("/", function (req, res) {
-//   res.send("Hello World! 123456");
-// });
+app.get("/", function (req, res) {
+  res.send("Hello World! 123456");
+});
+
 // app.use(express.json());
 // routes(app);
 
