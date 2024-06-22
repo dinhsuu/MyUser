@@ -1,4 +1,4 @@
-import routes from "./src/routes/index.js";
+import routes from "./src/routes";
 import express from "express";
 import mysql from "mysql";
 
@@ -20,7 +20,7 @@ con.connect(function (err) {
   } else console.log("connect success");
   con.query(sql, function (err, results) {
     if (err) throw err;
-    console.log(results);
+    // console.log(results);
   });
 });
 

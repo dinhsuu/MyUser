@@ -9,15 +9,14 @@ export const userDetailController = (req, res) => {
 };
 
 export const createUserController = async (req, res) => {
-  console.log("req.body", req.body);
-  let { email, password, name } = req.body;
-  if (email && password && name) {
-    const response = await createUserServices(email, password, name);
-    return res.json(response);
+  let { password, name } = req.body;
+  if (password && name) {
+    const response = await createUserServices(password, name);
+    return res.status(200).json(response);
   } else {
-    return res.json({
+    return res.status(500).json({
       status: "err",
-      message: "the email, password and name is required",
+      message: "password and name is required",
     });
   }
 };
