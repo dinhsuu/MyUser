@@ -7,4 +7,8 @@ export default {
     database: "testdb",
     charset: "utf8mb4",
   },
+  key: {
+    jwtPrivateKey:
+      "asdfghjklqwertyuiopzxcvbnm",
+  },
 };

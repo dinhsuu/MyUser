@@ -12,16 +12,16 @@ var con = mysql.createConnection({
   password: "123456",
   database: "testdb",
 });
-var sql = "SELECT * FROM user";
+// var sql = "SELECT * FROM user";
 
 con.connect(function (err) {
   if (err) {
     throw err.stack;
   } else console.log("connect success");
-  con.query(sql, function (err, results) {
-    if (err) throw err;
-    // console.log(results);
-  });
+  // con.query(sql, function (err, results) {
+  //   if (err) throw err;
+  //    console.log(results);
+  // });
 });
 
 app.use(express.json());
