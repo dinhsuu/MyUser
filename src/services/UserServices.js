@@ -8,8 +8,8 @@ export const createUserServices = (name, password) => {
     try {
       const hashPassword = bcrypt.hashSync(password, 10);
       const response = await db.User.findOrCreate({
-        where: { name: name },
-        default: {
+        where: { name },
+        defaults: {
           name,
           password: hashPassword
         }
@@ -63,7 +63,7 @@ export const loginUserServices = (name, password) => {
 //           });
 //         }
 //         const hashPassword = bcrypt.hashSync(password, 10);
-//         const newUser = await User.create({
+//         const newUser = await User({
 //           email,
 //           password: hashPassword,
 //           name,

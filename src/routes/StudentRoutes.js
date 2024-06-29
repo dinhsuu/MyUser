@@ -1,18 +1,17 @@
-import express from "express";
-import {
-  createStudentController,
-  loginStudentController,
-  studentController,
-  studentDetailController,
-} from "../controllers/studentController.js";
+import express from 'express';
+import { createStudentController, getStudentByIdController, getStudentsController, loginStudentController } from '../controllers/StudentController';
+import verifyToken from '../migrations/verify-token';
 const router = express.Router();
 
-router.get("/", studentController);
+router.post('/login', loginStudentController);
+router.post('/create', createStudentController);
 
-router.get("/detail", studentDetailController);
+router.use('/', verifyToken);
 
-router.post("/create", createStudentController);
+// router.get('/', studentController);
+// router.get('/detail', studentDetailController);
 
-router.post("/login", loginStudentController);
+router.get('/get-list', getStudentsController);
+router.get('/', getStudentByIdController);
 
 export default router;
