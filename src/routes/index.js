@@ -1,8 +1,6 @@
-import UserRoutes from "./UserRoutes";
-import StudentRoutes from "./StudentRoutes";
+import UserRoute from './UserRoute';
 const routes = (app) => {
-  app.use("/api/user", UserRoutes);
-  app.use("/api/student", StudentRoutes);
+  app.use('/api/v1/user', UserRoute);
 };
 
 export default routes;
