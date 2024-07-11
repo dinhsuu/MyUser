@@ -1,7 +1,6 @@
 // const User = require('../models/UserModel');
 import bcrypt from 'bcrypt';
 import con from '../../config/db.config';
-import User from '../models/UserModel';
 
 export const getUser = async (req, res) => {
   con.query('SELECT * FROM Users', function (err, result) {
@@ -12,15 +11,6 @@ export const getUser = async (req, res) => {
       data: result
     });
   });
-
-  // User.getAll(function (err, user) {
-  //   if (err) res.send(err);
-  //   return res.json({
-  //     status: 200,
-  //     message: 'Success',
-  //     data: user
-  //   });
-  // });
 };
 
 export const createUserController = (req, res) => {
@@ -31,10 +21,10 @@ export const createUserController = (req, res) => {
   con.query(`SELECT * FROM Users WHERE name ='${name}'`, (e, resultat) => {
     if (e) throw e;
     if (resultat[0] === undefined) {
-      const sql = 'INSERT INTO Users SET ?';
+      // const sql = `INSET INTO Users VALUES('', ${name}, ${password})`;
       // con.query(sql, data);
       // con.end();
-      //   const sql = `INSET INTO Users VALUES('', ${name}, ${password})`;
+      const sql = 'INSERT INTO Users SET ?';
       con.query(sql, data, function (err, result) {
         if (err) {
           return res.json({
